@@ -60,19 +60,6 @@ class FlysystemService extends AbstractService implements FlysystemServiceInterf
      *
      * @return string|false
      */
-    public function getVisibility($filesystemName, $path)
-    {
-        return $this->getFactory()
-            ->createReader()
-            ->getVisibility($filesystemName, $path);
-    }
-
-    /**
-     * @param string $filesystemName
-     * @param string $path
-     *
-     * @return string|false
-     */
     public function getTimestamp($filesystemName, $path)
     {
         return $this->getFactory()
@@ -157,20 +144,6 @@ class FlysystemService extends AbstractService implements FlysystemServiceInterf
         return $this->getFactory()
             ->createWriter()
             ->markAsPublic($filesystemName, $path);
-    }
-
-    /**
-     * @param string $filesystemName
-     * @param string $path
-     * @param string $visibility 'public' or 'private'
-     *
-     * @return bool
-     */
-    public function setVisibility($filesystemName, $path, $visibility)
-    {
-        return $this->getFactory()
-            ->createWriter()
-            ->setVisibility($filesystemName, $path, $visibility);
     }
 
     /**

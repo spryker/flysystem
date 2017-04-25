@@ -43,14 +43,6 @@ interface FlysystemServiceInterface
      *
      * @return string|false
      */
-    public function getVisibility($filesystemName, $path);
-
-    /**
-     * @param string $filesystemName
-     * @param string $path
-     *
-     * @return string|false
-     */
     public function getTimestamp($filesystemName, $path);
 
     /**
@@ -101,15 +93,6 @@ interface FlysystemServiceInterface
      * @return bool
      */
     public function markAsPublic($filesystemName, $path);
-
-    /**
-     * @param string $filesystemName
-     * @param string $path
-     * @param string $visibility 'public' or 'private'
-     *
-     * @return bool
-     */
-    public function setVisibility($filesystemName, $path, $visibility);
 
     /**
      * @param string $filesystemName
