@@ -23,9 +23,6 @@ class Reader implements ReaderInterface
      */
     protected $filesystemProvider;
 
-    /**
-     * @param \Spryker\Service\Flysystem\Model\Provider\FilesystemProviderInterface $filesystemProvider
-     */
     public function __construct(FilesystemProviderInterface $filesystemProvider)
     {
         $this->filesystemProvider = $filesystemProvider;

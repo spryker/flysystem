@@ -20,9 +20,6 @@ class Writer implements WriterInterface
      */
     protected $filesystemProvider;
 
-    /**
-     * @param \Spryker\Service\Flysystem\Model\Provider\FilesystemProviderInterface $filesystemProvider
-     */
     public function __construct(FilesystemProviderInterface $filesystemProvider)
     {
         $this->filesystemProvider = $filesystemProvider;

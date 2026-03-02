@@ -89,9 +89,6 @@ class FlysystemServiceTest extends Unit
      */
     protected $testDataFileSystemRootDirectory;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -121,17 +118,11 @@ class FlysystemServiceTest extends Unit
         $this->flysystemService = $flysystemService;
     }
 
-    /**
-     * @return void
-     */
     protected function tearDown(): void
     {
         $this->directoryCleanup();
     }
 
-    /**
-     * @return void
-     */
     public function testHasShouldReturnFalseWithNonExistingFile(): void
     {
         // Act
@@ -144,9 +135,6 @@ class FlysystemServiceTest extends Unit
         $this->assertFalse($result);
     }
 
-    /**
-     * @return void
-     */
     public function testHasShouldReturnTrueWithExistingFile(): void
     {
         // Arrange
@@ -162,9 +150,6 @@ class FlysystemServiceTest extends Unit
         $this->assertTrue($result);
     }
 
-    /**
-     * @return void
-     */
     public function testReadWithNonExistingFileShouldThrowFileSystemException(): void
     {
         // Assert
@@ -177,9 +162,6 @@ class FlysystemServiceTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testReadWithExistingFileShouldReturnContent(): void
     {
         // Arrange
@@ -195,9 +177,6 @@ class FlysystemServiceTest extends Unit
         $this->assertSame(static::FILE_CONTENT, $contents);
     }
 
-    /**
-     * @return void
-     */
     public function testWrite(): void
     {
         // Act
@@ -214,9 +193,6 @@ class FlysystemServiceTest extends Unit
         $this->assertSame(static::FILE_CONTENT, $fileContent);
     }
 
-    /**
-     * @return void
-     */
     public function testDelete(): void
     {
         // Arrange
@@ -234,9 +210,6 @@ class FlysystemServiceTest extends Unit
         $this->assertFileDoesNotExist($file);
     }
 
-    /**
-     * @return void
-     */
     public function testRename(): void
     {
         // Arrange
@@ -257,9 +230,6 @@ class FlysystemServiceTest extends Unit
         $this->assertFileExists($renamedFile);
     }
 
-    /**
-     * @return void
-     */
     public function testCopy(): void
     {
         // Arrange
@@ -280,9 +250,6 @@ class FlysystemServiceTest extends Unit
         $this->assertFileExists($copiedFile);
     }
 
-    /**
-     * @return void
-     */
     public function testGetMimeType(): void
     {
         // Arrange
@@ -298,9 +265,6 @@ class FlysystemServiceTest extends Unit
         $this->assertSame('text/plain', $mimeType);
     }
 
-    /**
-     * @return void
-     */
     public function testGetTimestamp(): void
     {
         // Arrange
@@ -317,9 +281,6 @@ class FlysystemServiceTest extends Unit
         $this->assertSame($timestamp, $timestampExpected);
     }
 
-    /**
-     * @return void
-     */
     public function testGetSize(): void
     {
         // Arrange
@@ -337,9 +298,6 @@ class FlysystemServiceTest extends Unit
         $this->assertSame($sizeExpected, $size);
     }
 
-    /**
-     * @return void
-     */
     public function testIsPrivate(): void
     {
         // Arrange
@@ -355,9 +313,6 @@ class FlysystemServiceTest extends Unit
         $this->assertFalse($isPrivate);
     }
 
-    /**
-     * @return void
-     */
     public function testMarkAsPrivate(): void
     {
         // Arrange
@@ -385,9 +340,6 @@ class FlysystemServiceTest extends Unit
         $this->assertTrue($isPrivate);
     }
 
-    /**
-     * @return void
-     */
     public function testIsPublic(): void
     {
         // Arrange
@@ -403,9 +355,6 @@ class FlysystemServiceTest extends Unit
         $this->assertFalse($isPrivate);
     }
 
-    /**
-     * @return void
-     */
     public function testMarkAsPublic(): void
     {
         // Arrange
@@ -426,9 +375,6 @@ class FlysystemServiceTest extends Unit
         $this->assertFalse($isPrivate);
     }
 
-    /**
-     * @return void
-     */
     public function testCreateDir(): void
     {
         // Act
@@ -443,9 +389,6 @@ class FlysystemServiceTest extends Unit
         $this->assertDirectoryExists($dir);
     }
 
-    /**
-     * @return void
-     */
     public function testDeleteDir(): void
     {
         // Arrange
@@ -462,9 +405,6 @@ class FlysystemServiceTest extends Unit
         $this->assertDirectoryDoesNotExist($dir);
     }
 
-    /**
-     * @return void
-     */
     public function testReadStream(): void
     {
         // Arrange
@@ -485,9 +425,6 @@ class FlysystemServiceTest extends Unit
         $this->assertSame(static::FILE_CONTENT, $content);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateStream(): void
     {
         // Arrange
@@ -516,9 +453,6 @@ class FlysystemServiceTest extends Unit
         $this->assertSame('Lorem Ipsum', $content);
     }
 
-    /**
-     * @return void
-     */
     public function testWriteStream(): void
     {
         // Arrange
@@ -545,9 +479,6 @@ class FlysystemServiceTest extends Unit
         $this->assertSame(static::FILE_CONTENT, $content);
     }
 
-    /**
-     * @return void
-     */
     public function testListContents(): void
     {
         // Arrange
@@ -582,12 +513,6 @@ class FlysystemServiceTest extends Unit
         $this->tester->assertAllInstanceOf(FlysystemResourceTransfer::class, $flysystemResourceTransferCollection);
     }
 
-    /**
-     * @param string|null $content
-     * @param string|null $modifiedTimestamp
-     *
-     * @return void
-     */
     protected function createDocumentFile(?string $content = null, ?string $modifiedTimestamp = null): void
     {
         $dir = $this->testDataFileSystemRootDirectory . static::PATH_DOCUMENT . 'foo';
@@ -606,12 +531,6 @@ class FlysystemServiceTest extends Unit
         }
     }
 
-    /**
-     * @param string|null $content
-     * @param string|null $modifiedTimestamp
-     *
-     * @return void
-     */
     protected function createDocumentFileInRoot(?string $content = null, ?string $modifiedTimestamp = null): void
     {
         $file = $this->testDataFileSystemRootDirectory . static::FILE_DOCUMENT;
@@ -638,9 +557,6 @@ class FlysystemServiceTest extends Unit
         return file_get_contents($file);
     }
 
-    /**
-     * @return void
-     */
     protected function directoryCleanup(): void
     {
         foreach ($this->getFileListForCleanup() as $file) {
@@ -684,9 +600,6 @@ class FlysystemServiceTest extends Unit
         ];
     }
 
-    /**
-     * @return string
-     */
     protected function getLocalDocumentFile(): string
     {
         return $this->testDataFileSystemRootDirectory . static::PATH_DOCUMENT . 'foo/' . static::FILE_DOCUMENT;

@@ -33,9 +33,6 @@ class FlysystemServiceTester extends Actor
 {
     use _generated\FlysystemServiceTesterActions;
 
-    /**
-     * @return void
-     */
     public function arrangeFilesystemProviderThatReturnsDataWithPropertiesThatAreNotPresentInTheFlysystemResourceTransfer(): void
     {
         $this->mockFactoryMethod('createFilesystemProvider', function () {

@@ -19,9 +19,6 @@ use Spryker\Service\Kernel\AbstractServiceFactory;
  */
 class FlysystemServiceFactory extends AbstractServiceFactory
 {
-    /**
-     * @return \Spryker\Service\Flysystem\Model\Provider\FilesystemProviderInterface
-     */
     public function createFilesystemProvider(): FilesystemProviderInterface
     {
         return new FilesystemProvider(

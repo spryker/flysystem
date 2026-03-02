@@ -75,9 +75,6 @@ class FilesystemProvider implements FilesystemProviderInterface
         return $this->filesystemCollection;
     }
 
-    /**
-     * @return void
-     */
     protected function buildFilesystemCollection(): void
     {
         foreach ($this->createConfigCollection() as $name => $configTransfer) {
@@ -123,11 +120,6 @@ class FilesystemProvider implements FilesystemProviderInterface
         return $configTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\FlysystemConfigTransfer $flysystemConfigTransfer
-     *
-     * @return void
-     */
     protected function assertFlysystemConfigTransfer(FlysystemConfigTransfer $flysystemConfigTransfer): void
     {
         $flysystemConfigTransfer->requireName();
