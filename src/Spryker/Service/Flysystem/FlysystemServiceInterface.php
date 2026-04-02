@@ -308,4 +308,21 @@ interface FlysystemServiceInterface
      * @return void
      */
     public function writeStream($filesystemName, $path, $resource, array $config = []);
+
+    /**
+     * Specification:
+     * - Select pre-configured filesystem.
+     * - Generate a public URL for the given path.
+     * - Return public URL string, throw exception on failure.
+     *
+     * @api
+     *
+     * @param string $filesystemName
+     * @param string $path
+     *
+     * @throws \Spryker\Service\FileSystemExtension\Dependency\Exception\FileSystemReadException
+     *
+     * @return string
+     */
+    public function getPublicUrl(string $filesystemName, string $path): string;
 }

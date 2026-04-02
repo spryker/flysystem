@@ -34,4 +34,12 @@ class FlysystemConfigStub extends SprykerFlysystemConfig
             ],
         ];
     }
+
+     /**
+      * @return array<string, mixed>
+      */
+    public function getFlysystemConfig(): array
+    {
+        return [];
+    }
 }

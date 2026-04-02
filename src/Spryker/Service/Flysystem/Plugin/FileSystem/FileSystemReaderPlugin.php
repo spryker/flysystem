@@ -10,13 +10,14 @@ namespace Spryker\Service\Flysystem\Plugin\FileSystem;
 use Generated\Shared\Transfer\FileSystemListTransfer;
 use Generated\Shared\Transfer\FileSystemQueryTransfer;
 use Generated\Shared\Transfer\FileSystemResourceTransfer;
+use Spryker\Service\FileSystemExtension\Dependency\Plugin\FileSystemPublicUrlGeneratorPluginInterface;
 use Spryker\Service\FileSystemExtension\Dependency\Plugin\FileSystemReaderPluginInterface;
 use Spryker\Service\Kernel\AbstractPlugin;
 
 /**
  * @method \Spryker\Service\Flysystem\FlysystemServiceInterface getService()
  */
-class FileSystemReaderPlugin extends AbstractPlugin implements FileSystemReaderPluginInterface
+class FileSystemReaderPlugin extends AbstractPlugin implements FileSystemReaderPluginInterface, FileSystemPublicUrlGeneratorPluginInterface
 {
     /**
      * @param \Generated\Shared\Transfer\FileSystemQueryTransfer $fileSystemQueryTransfer
@@ -118,5 +119,27 @@ class FileSystemReaderPlugin extends AbstractPlugin implements FileSystemReaderP
         }
 
         return $collection;
+    }
+
+    /**
+     * {@inheritDoc}
+     * - Select pre-configured filesystem.
+     * - Generate a public URL for the given path.
+     * - Return public URL string, throw exception on failure.
+     *
+     * @api
+     *
+     * @param \Generated\Shared\Transfer\FileSystemQueryTransfer $fileSystemQueryTransfer
+     *
+     * @throws \Spryker\Service\FileSystemExtension\Dependency\Exception\FileSystemReadException
+     *
+     * @return string
+     */
+    public function getPublicUrl(FileSystemQueryTransfer $fileSystemQueryTransfer): string
+    {
+        return $this->getService()->getPublicUrl(
+            $fileSystemQueryTransfer->getFileSystemNameOrFail(),
+            $fileSystemQueryTransfer->getPathOrFail(),
+        );
     }
 }

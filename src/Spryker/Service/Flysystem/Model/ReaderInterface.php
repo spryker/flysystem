@@ -89,4 +89,14 @@ interface ReaderInterface
      * @return array<\Generated\Shared\Transfer\FlysystemResourceTransfer>
      */
     public function listContents($filesystemName, $directory = '', $recursive = false);
+
+    /**
+     * @param string $filesystemName
+     * @param string $path
+     *
+     * @throws \Spryker\Service\FileSystemExtension\Dependency\Exception\FileSystemReadException
+     *
+     * @return string
+     */
+    public function getPublicUrl(string $filesystemName, string $path): string;
 }

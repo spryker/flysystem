@@ -344,4 +344,23 @@ class FlysystemService extends AbstractService implements FlysystemServiceInterf
             ->createStream()
             ->writeStream($filesystemName, $path, $resource, $config);
     }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @api
+     *
+     * @param string $filesystemName
+     * @param string $path
+     *
+     * @throws \Spryker\Service\FileSystemExtension\Dependency\Exception\FileSystemReadException
+     *
+     * @return string
+     */
+    public function getPublicUrl(string $filesystemName, string $path): string
+    {
+        return $this->getFactory()
+            ->createReader()
+            ->getPublicUrl($filesystemName, $path);
+    }
 }

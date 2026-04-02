@@ -27,8 +27,8 @@ class FlysystemConfig extends AbstractBundleConfig
      *
      * @return array<string, mixed>
      */
-    public function getFlysystemConfig()
+    public function getFlysystemConfig(): array
     {
-        return [];
+        return $this->get(FlysystemConstants::FLYSYSTEM_OPTIONS, []);
     }
 }

@@ -175,6 +175,15 @@ class Reader implements ReaderInterface
         });
     }
 
+    public function getPublicUrl(string $filesystemName, string $path): string
+    {
+        return $this->handleReadOperation(function () use ($filesystemName, $path) {
+            return $this->filesystemProvider
+                ->getFilesystemByName($filesystemName)
+                ->publicUrl($path);
+        });
+    }
+
     /**
      * @param string $type
      *

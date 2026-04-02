@@ -479,6 +479,21 @@ class FlysystemServiceTest extends Unit
         $this->assertSame(static::FILE_CONTENT, $content);
     }
 
+    public function testGetPublicUrlThrowsExceptionWhenNoUrlGeneratorConfigured(): void
+    {
+        // Arrange
+        $this->createDocumentFile();
+
+        // Assert
+        $this->expectException(FileSystemReadException::class);
+
+        // Act
+        $this->flysystemService->getPublicUrl(
+            static::FILE_SYSTEM_DOCUMENT,
+            'foo/' . static::FILE_DOCUMENT,
+        );
+    }
+
     public function testListContents(): void
     {
         // Arrange
