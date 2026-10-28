@@ -17,6 +17,12 @@ use Spryker\Service\Kernel\AbstractPlugin;
 class FileSystemStreamPlugin extends AbstractPlugin implements FileSystemStreamPluginInterface
 {
     /**
+     * {@inheritDoc}
+     * - Requires `FileSystemStreamTransfer.fileSystemName` and `FileSystemStreamTransfer.path` to be set.
+     * - Selects pre-configured filesystem by `FileSystemStreamTransfer.fileSystemName`.
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\FileSystemStreamTransfer $fileSystemStreamTransfer
      *
      * @return mixed
@@ -30,6 +36,13 @@ class FileSystemStreamPlugin extends AbstractPlugin implements FileSystemStreamP
     }
 
     /**
+     * {@inheritDoc}
+     * - Requires `FileSystemStreamTransfer.fileSystemName` and `FileSystemStreamTransfer.path` to be set.
+     * - Selects pre-configured filesystem by `FileSystemStreamTransfer.fileSystemName`.
+     * - Passes `FileSystemStreamTransfer.config` to the filesystem adapter.
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\FileSystemStreamTransfer $fileSystemStreamTransfer
      * @param mixed $stream
      *

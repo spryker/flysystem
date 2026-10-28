@@ -7,6 +7,8 @@
 
 namespace Spryker\Service\Flysystem\Model;
 
+use DateTimeInterface;
+
 interface ReaderInterface
 {
     /**
@@ -99,4 +101,16 @@ interface ReaderInterface
      * @return string
      */
     public function getPublicUrl(string $filesystemName, string $path): string;
+
+    /**
+     * @param string $filesystemName
+     * @param string $path
+     * @param \DateTimeInterface $expiresAt
+     * @param array<string, mixed> $config
+     *
+     * @throws \Spryker\Service\FileSystemExtension\Dependency\Exception\FileSystemReadException
+     *
+     * @return string
+     */
+    public function getTemporaryUrl(string $filesystemName, string $path, DateTimeInterface $expiresAt, array $config = []): string;
 }

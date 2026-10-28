@@ -9,6 +9,7 @@ namespace SprykerTest\Service\Flysystem;
 
 use Codeception\Configuration;
 use Codeception\Test\Unit;
+use DateTimeImmutable;
 use Generated\Shared\Transfer\FlysystemResourceTransfer;
 use Spryker\Service\FileSystemExtension\Dependency\Exception\FileSystemReadException;
 use Spryker\Service\Flysystem\FlysystemDependencyProvider;
@@ -491,6 +492,22 @@ class FlysystemServiceTest extends Unit
         $this->flysystemService->getPublicUrl(
             static::FILE_SYSTEM_DOCUMENT,
             'foo/' . static::FILE_DOCUMENT,
+        );
+    }
+
+    public function testGetTemporaryUrlThrowsExceptionWhenNoUrlGeneratorConfigured(): void
+    {
+        // Arrange
+        $this->createDocumentFile();
+
+        // Assert
+        $this->expectException(FileSystemReadException::class);
+
+        // Act
+        $this->flysystemService->getTemporaryUrl(
+            static::FILE_SYSTEM_DOCUMENT,
+            'foo/' . static::FILE_DOCUMENT,
+            new DateTimeImmutable('+10 minutes'),
         );
     }
 

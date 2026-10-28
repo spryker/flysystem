@@ -7,6 +7,8 @@
 
 namespace Spryker\Service\Flysystem;
 
+use DateTimeInterface;
+
 /**
  * @method \Spryker\Service\Flysystem\FlysystemServiceFactory getFactory()
  */
@@ -325,4 +327,25 @@ interface FlysystemServiceInterface
      * @return string
      */
     public function getPublicUrl(string $filesystemName, string $path): string;
+
+    /**
+     * Specification:
+     * - Select pre-configured filesystem.
+     * - Important! Only supported by adapters implementing `League\Flysystem\UrlGeneration\TemporaryUrlGenerator` (e.g. AWS S3).
+     * - Generate a temporary URL for the given path that stops working at `$expiresAt`.
+     * - Pass `$config` to the adapter, e.g. `get_object_options` and `presigned_request_options` for AWS S3.
+     * - Return temporary URL string, throw exception on failure.
+     *
+     * @api
+     *
+     * @param string $filesystemName
+     * @param string $path
+     * @param \DateTimeInterface $expiresAt
+     * @param array<string, mixed> $config
+     *
+     * @throws \Spryker\Service\FileSystemExtension\Dependency\Exception\FileSystemReadException
+     *
+     * @return string
+     */
+    public function getTemporaryUrl(string $filesystemName, string $path, DateTimeInterface $expiresAt, array $config = []): string;
 }

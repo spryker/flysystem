@@ -7,6 +7,7 @@
 
 namespace Spryker\Service\Flysystem;
 
+use DateTimeInterface;
 use Spryker\Service\Kernel\AbstractService;
 
 /**
@@ -362,5 +363,26 @@ class FlysystemService extends AbstractService implements FlysystemServiceInterf
         return $this->getFactory()
             ->createReader()
             ->getPublicUrl($filesystemName, $path);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @api
+     *
+     * @param string $filesystemName
+     * @param string $path
+     * @param \DateTimeInterface $expiresAt
+     * @param array<string, mixed> $config
+     *
+     * @throws \Spryker\Service\FileSystemExtension\Dependency\Exception\FileSystemReadException
+     *
+     * @return string
+     */
+    public function getTemporaryUrl(string $filesystemName, string $path, DateTimeInterface $expiresAt, array $config = []): string
+    {
+        return $this->getFactory()
+            ->createReader()
+            ->getTemporaryUrl($filesystemName, $path, $expiresAt, $config);
     }
 }

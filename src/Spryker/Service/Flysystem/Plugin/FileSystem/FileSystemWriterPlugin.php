@@ -23,6 +23,12 @@ use Spryker\Service\Kernel\AbstractPlugin;
 class FileSystemWriterPlugin extends AbstractPlugin implements FileSystemWriterPluginInterface
 {
     /**
+     * {@inheritDoc}
+     * - Requires `FileSystemVisibilityTransfer.fileSystemName` and `FileSystemVisibilityTransfer.path` to be set.
+     * - Selects pre-configured filesystem by `FileSystemVisibilityTransfer.fileSystemName`.
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\FileSystemVisibilityTransfer $fileSystemVisibilityTransfer
      *
      * @return void
@@ -36,6 +42,12 @@ class FileSystemWriterPlugin extends AbstractPlugin implements FileSystemWriterP
     }
 
     /**
+     * {@inheritDoc}
+     * - Requires `FileSystemVisibilityTransfer.fileSystemName` and `FileSystemVisibilityTransfer.path` to be set.
+     * - Selects pre-configured filesystem by `FileSystemVisibilityTransfer.fileSystemName`.
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\FileSystemVisibilityTransfer $fileSystemVisibilityTransfer
      *
      * @return void
@@ -49,6 +61,13 @@ class FileSystemWriterPlugin extends AbstractPlugin implements FileSystemWriterP
     }
 
     /**
+     * {@inheritDoc}
+     * - Requires `FileSystemCreateDirectoryTransfer.fileSystemName` and `FileSystemCreateDirectoryTransfer.path` to be set.
+     * - Selects pre-configured filesystem by `FileSystemCreateDirectoryTransfer.fileSystemName`.
+     * - Passes `FileSystemCreateDirectoryTransfer.config` to the filesystem adapter.
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\FileSystemCreateDirectoryTransfer $fileSystemCreateDirectoryTransfer
      *
      * @return void
@@ -63,6 +82,12 @@ class FileSystemWriterPlugin extends AbstractPlugin implements FileSystemWriterP
     }
 
     /**
+     * {@inheritDoc}
+     * - Requires `FileSystemDeleteDirectoryTransfer.fileSystemName` and `FileSystemDeleteDirectoryTransfer.path` to be set.
+     * - Selects pre-configured filesystem by `FileSystemDeleteDirectoryTransfer.fileSystemName`.
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\FileSystemDeleteDirectoryTransfer $fileSystemDeleteDirectoryTransfer
      *
      * @return void
@@ -76,6 +101,12 @@ class FileSystemWriterPlugin extends AbstractPlugin implements FileSystemWriterP
     }
 
     /**
+     * {@inheritDoc}
+     * - Requires `FileSystemCopyTransfer.fileSystemName`, `FileSystemCopyTransfer.sourcePath` and `FileSystemCopyTransfer.destinationPath` to be set.
+     * - Selects pre-configured filesystem by `FileSystemCopyTransfer.fileSystemName`.
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\FileSystemCopyTransfer $fileSystemCopyTransfer
      *
      * @return void
@@ -90,6 +121,12 @@ class FileSystemWriterPlugin extends AbstractPlugin implements FileSystemWriterP
     }
 
     /**
+     * {@inheritDoc}
+     * - Requires `FileSystemDeleteTransfer.fileSystemName` and `FileSystemDeleteTransfer.path` to be set.
+     * - Selects pre-configured filesystem by `FileSystemDeleteTransfer.fileSystemName`.
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\FileSystemDeleteTransfer $fileSystemDeleteTransfer
      *
      * @return void
@@ -103,6 +140,12 @@ class FileSystemWriterPlugin extends AbstractPlugin implements FileSystemWriterP
     }
 
     /**
+     * {@inheritDoc}
+     * - Requires `FileSystemRenameTransfer.fileSystemName`, `FileSystemRenameTransfer.path` and `FileSystemRenameTransfer.newPath` to be set.
+     * - Selects pre-configured filesystem by `FileSystemRenameTransfer.fileSystemName`.
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\FileSystemRenameTransfer $fileSystemRenameTransfer
      *
      * @return void
@@ -117,6 +160,13 @@ class FileSystemWriterPlugin extends AbstractPlugin implements FileSystemWriterP
     }
 
     /**
+     * {@inheritDoc}
+     * - Requires `FileSystemContentTransfer.fileSystemName`, `FileSystemContentTransfer.path` and `FileSystemContentTransfer.content` to be set.
+     * - Selects pre-configured filesystem by `FileSystemContentTransfer.fileSystemName`.
+     * - Passes `FileSystemContentTransfer.config` to the filesystem adapter.
+     *
+     * @api
+     *
      * @param \Generated\Shared\Transfer\FileSystemContentTransfer $fileSystemContentTransfer
      *
      * @return void

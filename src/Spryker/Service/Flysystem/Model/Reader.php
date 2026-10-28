@@ -7,6 +7,7 @@
 
 namespace Spryker\Service\Flysystem\Model;
 
+use DateTimeInterface;
 use Generated\Shared\Transfer\FlysystemResourceTransfer;
 use League\Flysystem\Visibility;
 use Spryker\Service\FileSystemExtension\Dependency\Exception\FileSystemReadException;
@@ -181,6 +182,15 @@ class Reader implements ReaderInterface
             return $this->filesystemProvider
                 ->getFilesystemByName($filesystemName)
                 ->publicUrl($path);
+        });
+    }
+
+    public function getTemporaryUrl(string $filesystemName, string $path, DateTimeInterface $expiresAt, array $config = []): string
+    {
+        return $this->handleReadOperation(function () use ($filesystemName, $path, $expiresAt, $config) {
+            return $this->filesystemProvider
+                ->getFilesystemByName($filesystemName)
+                ->temporaryUrl($path, $expiresAt, $config);
         });
     }
 

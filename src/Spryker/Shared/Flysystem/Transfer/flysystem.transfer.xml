@@ -91,4 +91,11 @@
         <property name="newPath" type="string"/>
     </transfer>
 
+    <transfer name="FileSystemTemporaryUrlQuery">
+        <property name="fileSystemName" type="string"/>
+        <property name="path" type="string"/>
+        <property name="expiresAt" type="string"/>
+        <property name="config" type="array" singular="config"/>
+    </transfer>
+
 </transfers>
